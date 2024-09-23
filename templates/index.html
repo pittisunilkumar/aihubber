@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIHubber</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AIHubber</h1>
+        <div class="response-grid">
+            <div class="response-box">
+                <div class="response-header">
+                    <h2>Groq/Llama Response</h2>
+                    <div class="button-group">
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                        <button class="enlarge-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="response-content">
+                    <pre><code class="typing-effect">{{ groq_llama_output | safe }}</code></pre>
+                </div>
+            </div>
+            <div class="response-box">
+                <div class="response-header">
+                    <h2>Rohith Response</h2>
+                    <div class="button-group">
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                        <button class="enlarge-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="response-content">
+                    <pre><code class="typing-effect">{{ gemma_output | safe }}</code></pre>
+                </div>
+            </div>
+            <div class="response-box">
+                <div class="response-header">
+                    <h2>Mixtral Response</h2>
+                    <div class="button-group">
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                        <button class="enlarge-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="response-content">
+                    <pre><code class="typing-effect">{{ mixtral_output | safe }}</code></pre>
+                </div>
+            </div>
+            <div class="response-box">
+                <div class="response-header">
+                    <h2>Gemini Response</h2>
+                    <div class="button-group">
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                        <button class="enlarge-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="response-content">
+                    <pre><code class="typing-effect">{{ gemini_output | safe }}</code></pre>
+                </div>
+            </div>
+        </div>
+        <form class="input-form" action="/" method="post">
+            <textarea name="input_text" placeholder="Enter your prompt here..." required></textarea>
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+    <div class="fullscreen-overlay">
+        <div class="fullscreen-content">
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <h2 class="fullscreen-title"></h2>
+            <pre><code class="fullscreen-code typing-effect"></code></pre>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
